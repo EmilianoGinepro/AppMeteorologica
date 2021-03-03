@@ -12,3 +12,14 @@ body {
     position: relative;
     top: -3rem;
 }
+
+.btn-success:hover{
+    background: rgb(36, 48, 70);
+}
+
+.btn-success{
+    color: #fff;
+    border: none;
+    background: rgb(108, 117, 154);    
+    
+}
