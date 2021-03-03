@@ -41,8 +41,20 @@ cityForm.addEventListener('submit', e => {
     forecast.updateCity(city)
         .then(data => updateUI(data))
         .catch(err => console.log(err));
+        
+    localStorage.setItem('city', city);
+});
 
-    // store latest city in local storage
+document.getElementById("btn_aceptar").addEventListener('click', e=>{
+    e.preventDefault()
+    const city = cityForm.city.value.trim();
+    cityForm.reset();
+
+   
+    forecast.updateCity(city)
+        .then(data => updateUI(data))
+        .catch(err => console.log(err));
+
     localStorage.setItem('city', city);
 });
 
