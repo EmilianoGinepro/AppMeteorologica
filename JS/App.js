@@ -31,7 +31,8 @@ const updateUI = (data) => {
     }
 };
 
-cityForm.addEventListener('submit', e => {
+
+let aceptar = e => {
     
     e.preventDefault()
     const city = cityForm.city.value.trim();
@@ -43,20 +44,12 @@ cityForm.addEventListener('submit', e => {
         .catch(err => console.log(err));
         
     localStorage.setItem('city', city);
-});
+}
 
-document.getElementById("btn_aceptar").addEventListener('click', e=>{
-    e.preventDefault()
-    const city = cityForm.city.value.trim();
-    cityForm.reset();
 
-   
-    forecast.updateCity(city)
-        .then(data => updateUI(data))
-        .catch(err => console.log(err));
+cityForm.addEventListener('submit', aceptar);
 
-    localStorage.setItem('city', city);
-});
+document.getElementById("btn_aceptar").addEventListener('click', aceptar);
 
 if (localStorage.getItem('city')) {
     forecast.updateCity(localStorage.getItem('city'))
